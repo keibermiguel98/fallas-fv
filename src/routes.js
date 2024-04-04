@@ -35,7 +35,7 @@ var routes = [
   {
     path: "/Addfallas",
     name: "Fallas",
-    icon: "ni ni-tv-2 text-primary",
+    icon: "ni ni-time-alarm text-danger",
     component: <AddFallas/>,
     layout: "/admin",
   },
