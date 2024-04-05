@@ -46,7 +46,7 @@ const Footer = () => {
                 rel="noopener noreferrer"
                 target="_blank"
               >
-                Creative Tim
+                Fv Bodegones
               </NavLink>
             </NavItem>
 
@@ -56,7 +56,7 @@ const Footer = () => {
                 rel="noopener noreferrer"
                 target="_blank"
               >
-                About Us
+                Sobre mi
               </NavLink>
             </NavItem>
 
@@ -66,7 +66,7 @@ const Footer = () => {
                 rel="noopener noreferrer"
                 target="_blank"
               >
-                Blog
+                Instagram
               </NavLink>
             </NavItem>
 
@@ -76,7 +76,7 @@ const Footer = () => {
                 rel="noopener noreferrer"
                 target="_blank"
               >
-                MIT License
+                License
               </NavLink>
             </NavItem>
           </Nav>

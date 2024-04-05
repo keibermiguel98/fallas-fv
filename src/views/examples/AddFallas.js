@@ -73,8 +73,8 @@ const AddFallas = () => {
                     <td>$2,500 USD</td>
                     <td>
                       <Badge color="" className="badge-dot mr-4">
-                        <i className="bg-warning" />
-                        pending
+                        <i className="bg-warning p-2" />
+                        Pendiente
                       </Badge>
                     </td>
                     <td>

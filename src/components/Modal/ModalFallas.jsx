@@ -8,11 +8,11 @@ export const ModalFallas=(args)=>{
     return(
         <>
         <Button className="my-4" color="success" type="button" onClick={toggle}>
-             Anexar nueva falla
+              Nueva falla
         </Button>
 
         <Modal isOpen={modal} toggle={toggle} {...args}>
-          <ModalHeader toggle={toggle}>NUEVA FALLA</ModalHeader>
+          <ModalHeader toggle={toggle}>FORMULARIO FALLAS</ModalHeader>
          <ModalBody>
          <div className="pl-lg-4">
                     <Row>
@@ -75,7 +75,7 @@ export const ModalFallas=(args)=>{
             Cargar falla
           </Button>{''}
           <Button color="secondary" onClick={toggle}>
-            Cancel
+            Cancelar
           </Button>
         </ModalFooter>
       </Modal>

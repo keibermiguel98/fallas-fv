@@ -35,17 +35,17 @@ import {
                   <h3 className="mb-0">Listado de usuarios</h3>
                   
                   <Button className="my-4" color="success" type="button">
-                    Registrar usuario
+                    Nuevo usuario
                   </Button>
                  
                 </CardHeader>
                 <Table className="align-items-center table-flush" responsive hover>
                   <thead className="thead-light">
                     <tr>
-                      <th scope="col">Producto</th>
-                      <th scope="col">Existencia</th>
-                      <th scope="col">Sugerido</th>
                       <th scope="col">Usuario</th>
+                      <th scope="col">Nombre</th>
+                      <th scope="col">Cedula</th>
+                      <th scope="col">Rol</th>
                       <th scope="col">Fecha</th>
                       <th scope="col" />
                     </tr>
@@ -74,8 +74,8 @@ import {
                       <td>$2,500 USD</td>
                       <td>
                         <Badge color="" className="badge-dot mr-4">
-                          <i className="bg-warning" />
-                          pending
+                          <i className="bg-info p-2" />
+                          Pendiente
                         </Badge>
                       </td>
                       <td>
