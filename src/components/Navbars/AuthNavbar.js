@@ -18,7 +18,7 @@ const AdminNavbar = () => {
     <>
       <Navbar className="navbar-top navbar-horizontal navbar-dark" expand="md">
         <Container className="px-4">
-          <NavbarBrand to="/" tag={Link}>
+          <NavbarBrand to="/Auth" tag={Link}>
             <img
               alt="..."
               src={require("../../assets/img/brand/original.png")}
@@ -34,7 +34,7 @@ const AdminNavbar = () => {
                   <Link to="/">
                     <img
                       alt="..."
-                      src={require("../../assets/img/brand/argon-react.png")}
+                      src={require("../../assets/img/brand/original.png")}
                     />
                   </Link>
                 </Col>
