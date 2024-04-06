@@ -254,13 +254,13 @@
                     // Navbar brand
                     .navbar-brand {
                         display: block;
-                        text-align: center;
+                        text-align: start;
                         padding-top: (2rem - $navbar-padding-y);
                         padding-bottom: (2rem - $navbar-padding-y);
                     }
 
                     .navbar-brand-img {
-                        max-height: 2.5rem;
+                        max-height: 5.5rem;
                     }
 
                     // Navbar user

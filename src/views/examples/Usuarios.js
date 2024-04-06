@@ -20,6 +20,7 @@ import {
   } from "reactstrap";
   // core components
   import HeaderFallas from "components/Headers/HeaderFallas.js";
+import { Link } from "react-router-dom";
   
   const Usuarios = () => {
     return (
@@ -34,9 +35,9 @@ import {
                 <CardHeader className="border-0">
                   <h3 className="mb-0">Listado de usuarios</h3>
                   
-                  <Button className="my-4" color="success" type="button">
+                  <Link to="/admin/profile" className="my-4 btn btn-success" color="success" type="button">
                     Nuevo usuario
-                  </Button>
+                  </Link>
                  
                 </CardHeader>
                 <Table className="align-items-center table-flush" responsive hover>
