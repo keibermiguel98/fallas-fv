@@ -18,6 +18,28 @@ import { addDoc } from "firebase/firestore";
 import { useState } from "react";
 
 const Profile = () => {
+
+  const usuariosCollection = collection(database, "usuarios")
+  
+  const handlePushData = async ()=>{
+    await addDoc(fallasCollection, 
+      {medicamentos:producto,
+       cantidadExistente: existencia, 
+       cantidadSugerida:cantidadSugerida, 
+       statusFallas:'Pendiente'}) 
+
+       const data = {
+        username: nameUser,
+        correo:correo,
+        password:password,
+        rol: rol,
+        direccion:direccion,
+        telefono:telefono,
+        sobre:sobre,
+        nameComplete:nameComplete
+       }
+  }
+   
    const [nameUser, setNameUser] = useState('')
    const [correo, setCorreo] = useState('')
    const [nameComplete, setNameComplete] = useState('')
@@ -59,15 +81,7 @@ const Profile = () => {
     setSobre(e.target.value)
    }
 
-   const handleSendDataUser=()=>{
-     const data = {
-      username: nameUser,
-      correo:correo,
-      password:password,
-      rol: rol
-     }
-     console.log(data)
-   }
+
 
   return (
     <>
@@ -90,59 +104,12 @@ const Profile = () => {
                   </div>
                 </Col>
               </Row>
-              <CardHeader className="text-center border-0 pt-8 pt-md-10 pb-0 pb-md-4">
+              <CardHeader className="text-center border-0 pt-8 pt-md-12 pb-0 pb-md-4">
                 <div className="d-flex justify-content-between">
                   <Input type="file" className="form-control"/>
                 
                 </div>
               </CardHeader>
-              <CardBody className="pt-0 pt-md-0">
-                <Row>
-                  <div className="col">
-                    <div className="card-profile-stats d-flex justify-content-center mt-md-5">
-                      <div>
-                        <span className="heading">22</span>
-                        <span className="description">Friends</span>
-                      </div>
-                      <div>
-                        <span className="heading">10</span>
-                        <span className="description">Photos</span>
-                      </div>
-                      <div>
-                        <span className="heading">89</span>
-                        <span className="description">Comments</span>
-                      </div>
-                    </div>
-                  </div>
-                </Row>
-                <div className="text-center">
-                  <h3>
-                    Jessica Jones
-                    <span className="font-weight-light">, 27</span>
-                  </h3>
-                  <div className="h5 font-weight-300">
-                    <i className="ni location_pin mr-2" />
-                    Bucharest, Romania
-                  </div>
-                  <div className="h5 mt-4">
-                    <i className="ni business_briefcase-24 mr-2" />
-                    Solution Manager - Creative Tim Officer
-                  </div>
-                  <div>
-                    <i className="ni education_hat mr-2" />
-                    University of Computer Science
-                  </div>
-                  <hr className="my-4" />
-                  <p>
-                    Ryan — the name taken by Melbourne-raised, Brooklyn-based
-                    Nick Murphy — writes, performs and records all of his own
-                    music.
-                  </p>
-                  <a href="#pablo" onClick={(e) => e.preventDefault()}>
-                    Show more
-                  </a>
-                </div>
-              </CardBody>
             </Card>
           </Col>
           <Col className="order-xl-1" xl="8">
