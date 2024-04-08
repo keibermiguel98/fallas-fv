@@ -1,9 +1,36 @@
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Row, Col, FormGroup, Input } from 'reactstrap';
 import React, { useState } from 'react';
+import { collection,addDoc } from 'firebase/firestore';
+import { database } from 'database/firebase';
 
 export const ModalFallas=(args)=>{
     const [modal, setModal] = useState(false);
     const toggle = () => setModal(!modal);
+
+    const fallasCollection = collection(database, "fallas")
+
+    const [producto, setProducto] = useState("")
+    const [cantidadSugerida, setSugerida] = useState("")
+    const [existencia, setExistencia] = useState("")
+
+    const handleGetInputProducto = (e)=>{
+       setProducto(e.target.value)
+    }
+
+    const handleGetInputCantidadSugerida = (e)=>{
+     setSugerida(e.target.value)
+    }
+
+     const handleGetInputExistencia = (e)=>{
+     setExistencia(e.target.value)
+    }
+
+    const handlePushDataFalla = async (e)=>{
+      e.preventDefault()
+      setModal(!modal)
+      await addDoc(fallasCollection, {medicamentos:producto, cantidadExistente: existencia, cantidadSugerida:cantidadSugerida, statusFallas:'Pendiente'})  
+      
+    }
 
     return(
         <>
@@ -23,11 +50,13 @@ export const ModalFallas=(args)=>{
                             className="form-control-label"
                             htmlFor="input-email"
                           >
-                            Descripcion
+                            Producto
                           </label>
                           <Input
+                            onChange={handleGetInputProducto}
+                            value={producto}
                             className="form-control-alternative"
-                            id="input-descripcion"
+                            id="input-producto"
                             placeholder="Example: Acetaminofen 200ML"
                             type="text"
                           />
@@ -44,6 +73,8 @@ export const ModalFallas=(args)=>{
                             Existencia
                           </label>
                           <Input
+                            value={existencia}
+                            onChange={handleGetInputExistencia}
                             className="form-control-alternative"
                             id="input-existencia"
                             placeholder="0"
@@ -60,6 +91,8 @@ export const ModalFallas=(args)=>{
                             Cantidad sugerida
                           </label>
                           <Input
+                            value={cantidadSugerida}
+                            onChange={handleGetInputCantidadSugerida}
                             className="form-control-alternative"
                             id="input-sugerencia"
                             placeholder="0"
@@ -71,7 +104,7 @@ export const ModalFallas=(args)=>{
                   </div>
         </ModalBody>
         <ModalFooter>
-          <Button color="primary" onClick={toggle}>
+          <Button color="primary" onClick={handlePushDataFalla}>
             Cargar falla
           </Button>{''}
           <Button color="secondary" onClick={toggle}>
