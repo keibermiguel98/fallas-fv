@@ -183,7 +183,7 @@ const Profile = () => {
                             value={nameUser}
                             onChange={handleGetNameUser}
                             className="form-control-alternative"
-                            id="input-username"
+                            id="input-username-alternative"
                             placeholder="Username"
                             type="text"
                           />
@@ -213,7 +213,7 @@ const Profile = () => {
                         <FormGroup>
                           <label
                             className="form-control-label"
-                            htmlFor="input-first-name"
+                            htmlFor="input--name"
                           >
                             Nombre completo
                           </label>
@@ -221,7 +221,7 @@ const Profile = () => {
                             value={nameComplete}
                             onChange={handleSetNameComplete}
                             className="form-control-alternative"
-                            id="input-first-name"
+                            id="input-name"
                             placeholder="First name"
                             type="text"
                           />
@@ -231,7 +231,7 @@ const Profile = () => {
                         <FormGroup>
                           <label
                             className="form-control-label"
-                            htmlFor="input-last-name"
+                            htmlFor="input-name"
                           >
                             Telefono
                           </label>
@@ -239,7 +239,7 @@ const Profile = () => {
                             value={telefono}
                             onChange={handleSetTelefono}
                             className="form-control-alternative"
-                            id="input-last-name"
+                            id="input-las-name"
                             placeholder="Phone"
                             type="text"
                           />
