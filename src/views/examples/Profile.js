@@ -13,8 +13,62 @@ import {
 } from "reactstrap";
 // core components
 import UserHeader from "components/Headers/UserHeader.js";
+import database from 'database/firebase.js'
+import { addDoc } from "firebase/firestore";
+import { useState } from "react";
 
 const Profile = () => {
+   const [nameUser, setNameUser] = useState('')
+   const [correo, setCorreo] = useState('')
+   const [nameComplete, setNameComplete] = useState('')
+   const [telefono,setTelefono] = useState('')
+   const [password,setPassword] = useState('')
+   const [rol, setRol] = useState('') 
+   const [direccion,setDireccion] = useState('')
+   const [sobre,setSobre] = useState('')
+
+   const handleGetNameUser =(e)=>{
+     setNameUser(e.target.value)
+   }
+
+   const handleGetCorreo =(e)=>{
+    setCorreo(e.target.value)
+   }
+
+   const handleSetNameComplete = (e)=>{
+    setNameComplete(e.target.value)
+   }
+
+   const handleSetTelefono = (e)=>{
+    setTelefono(e.target.value)
+   }
+
+   const handleSetPassword = (e)=>{
+    setPassword(e.target.value)
+   }
+
+   const handleSetRol = (e)=>{
+     setRol(e.target.value)
+   }
+
+   const handleSetDireccion = (e)=>{
+    setDireccion(e.target.value)
+   }
+
+   const handleSobre = (e)=>{
+    setSobre(e.target.value)
+   }
+
+   const handleSendDataUser=()=>{
+     const data = {
+      username: nameUser,
+      correo:correo,
+      password:password,
+      rol: rol
+     }
+     console.log(data)
+   }
+
   return (
     <>
       <UserHeader />
@@ -38,12 +92,7 @@ const Profile = () => {
               </Row>
               <CardHeader className="text-center border-0 pt-8 pt-md-10 pb-0 pb-md-4">
                 <div className="d-flex justify-content-between">
-                  <Input
-                    type="file"
-                    className="mr-4 btn btn-info"
-                  >
-                    Subir
-                  </Input>
+                  <Input type="file" className="form-control"/>
                 
                 </div>
               </CardHeader>
@@ -131,6 +180,8 @@ const Profile = () => {
                             Nombre de usuario
                           </label>
                           <Input
+                            value={nameUser}
+                            onChange={handleGetNameUser}
                             className="form-control-alternative"
                             id="input-username"
                             placeholder="Username"
@@ -147,6 +198,8 @@ const Profile = () => {
                             Correo electronico
                           </label>
                           <Input
+                            value={correo}
+                            onChange={handleGetCorreo}
                             className="form-control-alternative"
                             id="input-email"
                             placeholder="jesse@example.com"
@@ -165,6 +218,8 @@ const Profile = () => {
                             Nombre completo
                           </label>
                           <Input
+                            value={nameComplete}
+                            onChange={handleSetNameComplete}
                             className="form-control-alternative"
                             id="input-first-name"
                             placeholder="First name"
@@ -181,6 +236,8 @@ const Profile = () => {
                             Telefono
                           </label>
                           <Input
+                            value={telefono}
+                            onChange={handleSetTelefono}
                             className="form-control-alternative"
                             id="input-last-name"
                             placeholder="Phone"
@@ -208,6 +265,8 @@ const Profile = () => {
                             Contraseña
                           </label>
                           <Input
+                            value={password}
+                            onChange={handleSetPassword}
                             className="form-control-alternative"
                             id="input-last-name"
                             placeholder="Password"
@@ -225,10 +284,10 @@ const Profile = () => {
                             Rol
                           </label>
                         
-                          <select class="form-control">
-                              <option>Administrador</option>
-                              <option>Encargado</option>
-                              <option>Divulgador</option>
+                          <select className="form-control" value={rol} onChange={handleSetRol}>
+                              <option value="Administrador">Administrador</option>
+                              <option value="Encargado">Encargado</option>
+                              <option value="Captador">Captador</option>
                           </select>
                         </FormGroup>
                       </Col>
@@ -256,6 +315,8 @@ const Profile = () => {
                             Direccion
                           </label>
                           <Input
+                            value={direccion}
+                            onChange={handleSetDireccion}
                             className="form-control-alternative"
                             id="input-address"
                             placeholder="Home Address"
@@ -273,14 +334,19 @@ const Profile = () => {
                     <FormGroup>
                       <label>🧩</label>
                       <Input
+                        value={sobre}
+                        onChange={handleSobre}
                         className="form-control-alternative"
                         placeholder="A few words about you ..."
                         rows="4"
                         type="textarea"
                       />
                     </FormGroup>
+                    <Button color="info" onClick={handleSendDataUser}>Enviar</Button>
                   </div>
+                
                 </Form>
+               
               </CardBody>
             </Card>
           </Col>
