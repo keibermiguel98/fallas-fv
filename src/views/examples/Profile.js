@@ -26,7 +26,7 @@ const Profile = () => {
               <Row className="justify-content-center">
                 <Col className="order-lg-2" lg="3">
                   <div className="card-profile-image">
-                    <a href="#pablo" onClick={(e) => e.preventDefault()}>
+                    <a href="#" onClick={(e) => e.preventDefault()}>
                       <img
                         alt="..."
                         className="rounded-circle"
@@ -36,29 +36,18 @@ const Profile = () => {
                   </div>
                 </Col>
               </Row>
-              <CardHeader className="text-center border-0 pt-8 pt-md-4 pb-0 pb-md-4">
+              <CardHeader className="text-center border-0 pt-8 pt-md-10 pb-0 pb-md-4">
                 <div className="d-flex justify-content-between">
-                  <Button
-                    className="mr-4"
-                    color="info"
-                    href="#pablo"
-                    onClick={(e) => e.preventDefault()}
-                    size="sm"
+                  <Input
+                    type="file"
+                    className="mr-4 btn btn-info"
                   >
-                    Connect
-                  </Button>
-                  <Button
-                    className="float-right"
-                    color="default"
-                    href="#pablo"
-                    onClick={(e) => e.preventDefault()}
-                    size="sm"
-                  >
-                    Message
-                  </Button>
+                    Subir
+                  </Input>
+                
                 </div>
               </CardHeader>
-              <CardBody className="pt-0 pt-md-4">
+              <CardBody className="pt-0 pt-md-0">
                 <Row>
                   <div className="col">
                     <div className="card-profile-stats d-flex justify-content-center mt-md-5">
@@ -112,7 +101,7 @@ const Profile = () => {
               <CardHeader className="bg-white border-0">
                 <Row className="align-items-center">
                   <Col xs="8">
-                    <h3 className="mb-0">My account</h3>
+                    <h3 className="mb-0">Cuenta de usuario</h3>
                   </Col>
                   <Col className="text-right" xs="4">
                     <Button
@@ -129,7 +118,7 @@ const Profile = () => {
               <CardBody>
                 <Form>
                   <h6 className="heading-small text-muted mb-4">
-                    User information
+                    Datos de usuario
                   </h6>
                   <div className="pl-lg-4">
                     <Row>
@@ -139,11 +128,10 @@ const Profile = () => {
                             className="form-control-label"
                             htmlFor="input-username"
                           >
-                            Username
+                            Nombre de usuario
                           </label>
                           <Input
                             className="form-control-alternative"
-                            defaultValue="lucky.jesse"
                             id="input-username"
                             placeholder="Username"
                             type="text"
@@ -156,7 +144,7 @@ const Profile = () => {
                             className="form-control-label"
                             htmlFor="input-email"
                           >
-                            Email address
+                            Correo electronico
                           </label>
                           <Input
                             className="form-control-alternative"
@@ -174,11 +162,10 @@ const Profile = () => {
                             className="form-control-label"
                             htmlFor="input-first-name"
                           >
-                            First name
+                            Nombre completo
                           </label>
                           <Input
                             className="form-control-alternative"
-                            defaultValue="Lucky"
                             id="input-first-name"
                             placeholder="First name"
                             type="text"
@@ -191,23 +178,72 @@ const Profile = () => {
                             className="form-control-label"
                             htmlFor="input-last-name"
                           >
-                            Last name
+                            Telefono
                           </label>
                           <Input
                             className="form-control-alternative"
-                            defaultValue="Jesse"
                             id="input-last-name"
-                            placeholder="Last name"
+                            placeholder="Phone"
                             type="text"
                           />
                         </FormGroup>
                       </Col>
                     </Row>
                   </div>
+
                   <hr className="my-4" />
                   {/* Address */}
                   <h6 className="heading-small text-muted mb-4">
-                    Contact information
+                    Informacion de seguridad
+                  </h6>
+                  <div className="pl-lg-4">
+                    <Row>
+                    
+                      <Col lg="6">
+                        <FormGroup>
+                          <label
+                            className="form-control-label"
+                            htmlFor="input-last-name"
+                          >
+                            Contraseña
+                          </label>
+                          <Input
+                            className="form-control-alternative"
+                            id="input-last-name"
+                            placeholder="Password"
+                            type="password"
+                          />
+                        </FormGroup>
+                      </Col>
+
+                      <Col lg="6">
+                        <FormGroup>
+                          <label
+                            className="form-control-label"
+                            htmlFor="input-last-name"
+                          >
+                            Rol
+                          </label>
+                        
+                          <select class="form-control">
+                              <option>Administrador</option>
+                              <option>Encargado</option>
+                              <option>Divulgador</option>
+                          </select>
+                        </FormGroup>
+                      </Col>
+                    
+                      
+                    </Row>
+               
+                  </div>
+
+
+
+                  <hr className="my-4" />
+                  {/* Address */}
+                  <h6 className="heading-small text-muted mb-4">
+                    Informacion de contacto
                   </h6>
                   <div className="pl-lg-4">
                     <Row>
@@ -217,11 +253,10 @@ const Profile = () => {
                             className="form-control-label"
                             htmlFor="input-address"
                           >
-                            Address
+                            Direccion
                           </label>
                           <Input
                             className="form-control-alternative"
-                            defaultValue="Bld Mihail Kogalniceanu, nr. 8 Bl 1, Sc 1, Ap 09"
                             id="input-address"
                             placeholder="Home Address"
                             type="text"
@@ -229,71 +264,18 @@ const Profile = () => {
                         </FormGroup>
                       </Col>
                     </Row>
-                    <Row>
-                      <Col lg="4">
-                        <FormGroup>
-                          <label
-                            className="form-control-label"
-                            htmlFor="input-city"
-                          >
-                            City
-                          </label>
-                          <Input
-                            className="form-control-alternative"
-                            defaultValue="New York"
-                            id="input-city"
-                            placeholder="City"
-                            type="text"
-                          />
-                        </FormGroup>
-                      </Col>
-                      <Col lg="4">
-                        <FormGroup>
-                          <label
-                            className="form-control-label"
-                            htmlFor="input-country"
-                          >
-                            Country
-                          </label>
-                          <Input
-                            className="form-control-alternative"
-                            defaultValue="United States"
-                            id="input-country"
-                            placeholder="Country"
-                            type="text"
-                          />
-                        </FormGroup>
-                      </Col>
-                      <Col lg="4">
-                        <FormGroup>
-                          <label
-                            className="form-control-label"
-                            htmlFor="input-country"
-                          >
-                            Postal code
-                          </label>
-                          <Input
-                            className="form-control-alternative"
-                            id="input-postal-code"
-                            placeholder="Postal code"
-                            type="number"
-                          />
-                        </FormGroup>
-                      </Col>
-                    </Row>
+               
                   </div>
                   <hr className="my-4" />
                   {/* Description */}
-                  <h6 className="heading-small text-muted mb-4">About me</h6>
+                  <h6 className="heading-small text-muted mb-4">Sobre mi</h6>
                   <div className="pl-lg-4">
                     <FormGroup>
-                      <label>About Me</label>
+                      <label>🧩</label>
                       <Input
                         className="form-control-alternative"
                         placeholder="A few words about you ..."
                         rows="4"
-                        defaultValue="A beautiful Dashboard for Bootstrap 4. It is Free and
-                        Open Source."
                         type="textarea"
                       />
                     </FormGroup>

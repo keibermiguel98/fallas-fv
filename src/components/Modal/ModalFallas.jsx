@@ -7,6 +7,7 @@ export const ModalFallas=(args)=>{
     const [modal, setModal] = useState(false);
     const toggle = () => setModal(!modal);
 
+
     const fallasCollection = collection(database, "fallas")
 
     const [producto, setProducto] = useState("")
@@ -28,8 +29,8 @@ export const ModalFallas=(args)=>{
     const handlePushDataFalla = async (e)=>{
       e.preventDefault()
       setModal(!modal)
+    
       await addDoc(fallasCollection, {medicamentos:producto, cantidadExistente: existencia, cantidadSugerida:cantidadSugerida, statusFallas:'Pendiente'})  
-      
     }
 
     return(
@@ -43,7 +44,6 @@ export const ModalFallas=(args)=>{
          <ModalBody>
          <div className="pl-lg-4">
                     <Row>
-                   
                       <Col lg="12">
                         <FormGroup>
                           <label

@@ -7,7 +7,7 @@ const UserHeader = () => {
       <div
         className="header pb-8 pt-5 pt-lg-8 d-flex align-items-center"
         style={{
-          minHeight: "600px",
+          minHeight: "400px",
           backgroundImage:
             "url(" + require("../../assets/img/theme/profile-cover.jpg") + ")",
           backgroundSize: "cover",
@@ -22,16 +22,9 @@ const UserHeader = () => {
             <Col lg="7" md="10">
               <h1 className="display-2 text-white">Hello Jesse</h1>
               <p className="text-white mt-0 mb-5">
-                This is your profile page. You can see the progress you've made
-                with your work and manage your projects or assigned tasks
+              Esta es tu página de perfil. Puedes ver el progreso que has hecho con tu trabajo y gestionar tus proyectos o tareas asignadas
               </p>
-              <Button
-                color="info"
-                href="#pablo"
-                onClick={(e) => e.preventDefault()}
-              >
-                Edit profile
-              </Button>
+     
             </Col>
           </Row>
         </Container>
