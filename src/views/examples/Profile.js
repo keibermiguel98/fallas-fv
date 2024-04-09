@@ -13,8 +13,8 @@ import {
 } from "reactstrap";
 // core components
 import UserHeader from "components/Headers/UserHeader.js";
-import database from 'database/firebase.js'
-import { addDoc } from "firebase/firestore";
+import {database} from 'database/firebase.js'
+import { addDoc,collection } from "firebase/firestore";
 import { useState } from "react";
 
 const Profile = () => {
@@ -22,22 +22,17 @@ const Profile = () => {
   const usuariosCollection = collection(database, "usuarios")
   
   const handlePushData = async ()=>{
-    await addDoc(fallasCollection, 
-      {medicamentos:producto,
-       cantidadExistente: existencia, 
-       cantidadSugerida:cantidadSugerida, 
-       statusFallas:'Pendiente'}) 
+    await addDoc(usuariosCollection, 
+      {nombreUsuario:nameUser,
+       correo: correo, 
+       nombreCompleto:nameComplete, 
+       telefono:telefono,
+       password: password,
+       rol:rol,
+       direccion: direccion,
+       sobre:sobre
+      }) 
 
-       const data = {
-        username: nameUser,
-        correo:correo,
-        password:password,
-        rol: rol,
-        direccion:direccion,
-        telefono:telefono,
-        sobre:sobre,
-        nameComplete:nameComplete
-       }
   }
    
    const [nameUser, setNameUser] = useState('')
@@ -80,7 +75,6 @@ const Profile = () => {
    const handleSobre = (e)=>{
     setSobre(e.target.value)
    }
-
 
 
   return (
@@ -309,7 +303,7 @@ const Profile = () => {
                         type="textarea"
                       />
                     </FormGroup>
-                    <Button color="info" onClick={handleSendDataUser}>Enviar</Button>
+                    <Button color="info" onClick={handlePushData}>Enviar</Button>
                   </div>
                 
                 </Form>
