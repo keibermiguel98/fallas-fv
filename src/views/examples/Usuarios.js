@@ -60,8 +60,8 @@ const Usuarios = () => {
                 <Table className="align-items-center table-flush" responsive hover>
                   <thead className="thead-light">
                     <tr>
-                      <th scope="col">Usuario</th>
                       <th scope="col">Nombre</th>
+                      <th scope="col">Usuario</th>
                       <th scope="col">Cedula</th>
                       <th scope="col">Rol</th>
                       <th scope="col">Fecha</th>
@@ -86,13 +86,13 @@ const Usuarios = () => {
                           </a>
                           <Media>
                             <span className="mb-0 text-sm">
-                               {user.nombreUsuario}
+                               {user.nombreCompleto}
                             </span>
                           </Media>
                         </Media>
                       </th>
                       <td>
-                      {user.nombreCompleto}
+                      {user.nombreUsuario}
                       </td>
                       <td>
                           {user.cedula}
