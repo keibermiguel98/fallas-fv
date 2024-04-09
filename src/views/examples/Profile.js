@@ -24,7 +24,7 @@ const Profile = () => {
   const handlePushData = async ()=>{
     await addDoc(usuariosCollection, 
       {nombreUsuario:nameUser,
-       correo: correo, 
+       cedula: cedula, 
        nombreCompleto:nameComplete, 
        telefono:telefono,
        password: password,
@@ -36,7 +36,7 @@ const Profile = () => {
   }
    
    const [nameUser, setNameUser] = useState('')
-   const [correo, setCorreo] = useState('')
+   const [cedula, setCedula] = useState('')
    const [nameComplete, setNameComplete] = useState('')
    const [telefono,setTelefono] = useState('')
    const [password,setPassword] = useState('')
@@ -48,8 +48,8 @@ const Profile = () => {
      setNameUser(e.target.value)
    }
 
-   const handleGetCorreo =(e)=>{
-    setCorreo(e.target.value)
+   const handleGetCedula =(e)=>{
+    setCedula(e.target.value)
    }
 
    const handleSetNameComplete = (e)=>{
@@ -156,11 +156,11 @@ const Profile = () => {
                             className="form-control-label"
                             htmlFor="input-email"
                           >
-                            Correo electronico
+                            Cedula(*)
                           </label>
                           <Input
-                            value={correo}
-                            onChange={handleGetCorreo}
+                            value={cedula}
+                            onChange={handleGetCedula}
                             className="form-control-alternative"
                             id="input-email"
                             placeholder="jesse@example.com"

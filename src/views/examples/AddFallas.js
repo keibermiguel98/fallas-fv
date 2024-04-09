@@ -79,7 +79,7 @@ const AddFallas = () => {
                         >
                           <img
                             alt="..."
-                            src={require("../../assets/img/theme/bootstrap.jpg")}
+                            src={require("../../assets/img/theme/package.png")}
                           />
                         </a>
                         <Media>

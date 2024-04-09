@@ -19,10 +19,27 @@ import {
     Button
   } from "reactstrap";
   // core components
-  import HeaderFallas from "components/Headers/HeaderFallas.js";
+import HeaderFallas from "components/Headers/HeaderFallas.js";
 import { Link } from "react-router-dom";
+import { getDocs,collection } from "firebase/firestore";  
+import { database } from "database/firebase";
+import { useEffect, useState } from "react";
   
-  const Usuarios = () => {
+const Usuarios = () => {
+   const [usuarios,setUsuarios] = useState([])
+   const usuariosCollection = collection(database, "usuarios")
+    
+    const getUsuarios = async()=>{
+      const users = await getDocs(usuariosCollection)
+      setUsuarios(
+        users.docs.map((data)=>({...data.data(), id:data.id}))
+      )
+    } 
+
+    useEffect(()=>{
+       getUsuarios()
+    },[])
+
     return (
       <> 
         <HeaderFallas />
@@ -52,7 +69,9 @@ import { Link } from "react-router-dom";
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
+                    
+                      { usuarios.map((user)=>(
+                          <tr key={user.id}>
                       <th scope="row">
                         <Media className="align-items-center">
                           <a
@@ -62,98 +81,26 @@ import { Link } from "react-router-dom";
                           >
                             <img
                               alt="..."
-                              src={require("../../assets/img/theme/bootstrap.jpg")}
+                              src={require("../../assets/img/theme/user.png")}
                             />
                           </a>
                           <Media>
                             <span className="mb-0 text-sm">
-                              Argon Design System
+                               {user.nombreUsuario}
                             </span>
                           </Media>
                         </Media>
                       </th>
-                      <td>$2,500 USD</td>
                       <td>
-                        <Badge color="" className="badge-dot mr-4">
-                          <i className="bg-info p-2" />
-                          Pendiente
-                        </Badge>
+                      {user.nombreCompleto}
                       </td>
                       <td>
-                        <div className="avatar-group">
-                          <a
-                            className="avatar avatar-sm"
-                            href="#pablo"
-                            id="tooltip742438047"
-                            onClick={(e) => e.preventDefault()}
-                          >
-                            <img
-                              alt="..."
-                              className="rounded-circle"
-                              src={require("../../assets/img/theme/team-1-800x800.jpg")}
-                            />
-                          </a>
-                          <UncontrolledTooltip
-                            delay={0}
-                            target="tooltip742438047"
-                          >
-                            Ryan Tompson
-                          </UncontrolledTooltip>
-                          <a
-                            className="avatar avatar-sm"
-                            href="#pablo"
-                            id="tooltip941738690"
-                            onClick={(e) => e.preventDefault()}
-                          >
-                            <img
-                              alt="..."
-                              className="rounded-circle"
-                              src={require("../../assets/img/theme/team-2-800x800.jpg")}
-                            />
-                          </a>
-                          <UncontrolledTooltip
-                            delay={0}
-                            target="tooltip941738690"
-                          >
-                            Romina Hadid
-                          </UncontrolledTooltip>
-                          <a
-                            className="avatar avatar-sm"
-                            href="#pablo"
-                            id="tooltip804044742"
-                            onClick={(e) => e.preventDefault()}
-                          >
-                            <img
-                              alt="..."
-                              className="rounded-circle"
-                              src={require("../../assets/img/theme/team-3-800x800.jpg")}
-                            />
-                          </a>
-                          <UncontrolledTooltip
-                            delay={0}
-                            target="tooltip804044742"
-                          >
-                            Alexander Smith
-                          </UncontrolledTooltip>
-                          <a
-                            className="avatar avatar-sm"
-                            href="#pablo"
-                            id="tooltip996637554"
-                            onClick={(e) => e.preventDefault()}
-                          >
-                            <img
-                              alt="..."
-                              className="rounded-circle"
-                              src={require("../../assets/img/theme/team-4-800x800.jpg")}
-                            />
-                          </a>
-                          <UncontrolledTooltip
-                            delay={0}
-                            target="tooltip996637554"
-                          >
-                            Jessica Doe
-                          </UncontrolledTooltip>
-                        </div>
+                          {user.cedula}
+                      </td>
+                      <td>
+                      <Badge color="primary" pill>
+                      {user.rol}
+                    </Badge>
                       </td>
                       <td>
                         <div className="d-flex align-items-center">
@@ -196,6 +143,10 @@ import { Link } from "react-router-dom";
                         </UncontrolledDropdown>
                       </td>
                     </tr>
+                      ))
+
+                      }
+                      
                 
                   </tbody>
                 </Table>
