@@ -139,7 +139,7 @@ const Profile = () => {
                             className="form-control-label"
                             htmlFor="input-username"
                           >
-                            Nombre de usuario
+                            Nombre de usuario(*)
                           </label>
                           <Input
                             value={nameUser}
@@ -177,7 +177,7 @@ const Profile = () => {
                             className="form-control-label"
                             htmlFor="input--name"
                           >
-                            Nombre completo
+                            Nombre completo(*)
                           </label>
                           <Input
                             value={nameComplete}
@@ -195,7 +195,7 @@ const Profile = () => {
                             className="form-control-label"
                             htmlFor="input-name"
                           >
-                            Telefono
+                            Telefono(*)
                           </label>
                           <Input
                             value={telefono}
@@ -224,7 +224,7 @@ const Profile = () => {
                             className="form-control-label"
                             htmlFor="input-last-name"
                           >
-                            Contraseña
+                            Contraseña(*)
                           </label>
                           <Input
                             value={password}
@@ -243,10 +243,11 @@ const Profile = () => {
                             className="form-control-label"
                             htmlFor="input-last-name"
                           >
-                            Rol
+                            Rol(*)
                           </label>
                         
                           <select className="form-control" value={rol} onChange={handleSetRol}>
+                              <option value="#">Seleccionar..</option>
                               <option value="Administrador">Administrador</option>
                               <option value="Encargado">Encargado</option>
                               <option value="Captador">Captador</option>
@@ -274,7 +275,7 @@ const Profile = () => {
                             className="form-control-label"
                             htmlFor="input-address"
                           >
-                            Direccion
+                            Direccion(*)
                           </label>
                           <Input
                             value={direccion}
@@ -304,7 +305,7 @@ const Profile = () => {
                         type="textarea"
                       />
                     </FormGroup>
-                    <Button color="info" onClick={handlePushData}>Enviar</Button>
+                    <Button color="info" onClick={handlePushData}>Guardar</Button>
                   </div>
                 
                 </Form>

@@ -25,7 +25,7 @@ import { getDocs,collection } from "firebase/firestore";
 import { database } from "database/firebase";
 import { useEffect, useState } from "react";
   
-const Usuarios = () => {
+const Productos = () => {
    const [usuarios,setUsuarios] = useState([])
    const usuariosCollection = collection(database, "usuarios")
     
@@ -160,5 +160,5 @@ const Usuarios = () => {
     );
   };
   
-  export default Usuarios;
+  export default Productos;
   
