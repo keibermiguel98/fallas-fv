@@ -16,9 +16,10 @@ import UserHeader from "components/Headers/UserHeader.js";
 import {database} from 'database/firebase.js'
 import { addDoc,collection } from "firebase/firestore";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Profile = () => {
-
+  const navigate = useNavigate()
   const usuariosCollection = collection(database, "usuarios")
   
   const handlePushData = async ()=>{
@@ -32,7 +33,7 @@ const Profile = () => {
        direccion: direccion,
        sobre:sobre
       }) 
-
+    navigate('/admin/users')
   }
    
    const [nameUser, setNameUser] = useState('')

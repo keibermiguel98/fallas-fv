@@ -98,9 +98,10 @@ const Usuarios = () => {
                           {user.cedula}
                       </td>
                       <td>
-                      <Badge color="primary" pill>
-                      {user.rol}
-                    </Badge>
+                      { user.rol == "Administrador" ?  <Badge color="info" pill>{user.rol}</Badge>: user.rol == "Encargado" ?  <Badge color="success" pill> {user.rol}</Badge> :  <Badge color="warning" pill> {user.rol}</Badge>
+                        
+                        }
+                     
                       </td>
                       <td>
                         <div className="d-flex align-items-center">
