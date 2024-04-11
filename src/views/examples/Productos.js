@@ -50,10 +50,10 @@ const Productos = () => {
             <div className="col">
               <Card className="shadow">
                 <CardHeader className="border-0">
-                  <h3 className="mb-0">Listado de usuarios</h3>
+                  <h3 className="mb-0">Listado de productos</h3>
                   
-                  <Link to="/admin/profile" className="my-4 btn btn-success" color="success" type="button">
-                    Nuevo usuario
+                  <Link to="/admin/productos/new-product" className="my-4 btn btn-success" color="success" type="button">
+                    Nuevo producto
                   </Link>
                  
                 </CardHeader>

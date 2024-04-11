@@ -35,8 +35,5 @@ var routes = [
     component: <Usuarios />,
     layout: "/admin",
   },
-
-
-
 ];
 export default routes;
