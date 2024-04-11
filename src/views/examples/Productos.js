@@ -79,7 +79,7 @@ const Productos = () => {
                           >
                             <img
                               alt="..."
-                              src={require("../../assets/img/theme/user.png")}
+                              src={require("../../assets/img/theme/medicine.png")}
                             />
                           </a>
                           <Media>

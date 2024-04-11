@@ -75,7 +75,7 @@ const Usuarios = () => {
                       <th scope="row">
                         <Media className="align-items-center">
                           <a
-                            className="avatar rounded-circle mr-3"
+                            className="avatar rounded-circle mr-4"
                             href="#pablo"
                             onClick={(e) => e.preventDefault()}
                           >
