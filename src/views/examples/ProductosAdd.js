@@ -20,13 +20,19 @@ import { useNavigate } from "react-router-dom";
 
 const ProductosAdd = () => {
   const navigate = useNavigate()
-  const usuariosCollection = collection(database, "usuarios")
+  const productoCollection = collection(database, "productos")
   
   const handlePushData = async ()=>{
-    await addDoc(usuariosCollection, 
+    await addDoc(productoCollection, 
       {
+        codigo:codigo,
+        producto: nameProducto,
+        proposito: sobre,
+        codigosAlternos: {codigo1:codigo},
+        createAt: new Date()
       }) 
-    navigate('/admin/productos/new-product')
+
+    navigate('/admin/productos')
   }
    
    const [nameProducto, setNameProducto] = useState('')
@@ -156,6 +162,7 @@ const ProductosAdd = () => {
                       />
                     </FormGroup>
                     <Button color="info" onClick={handlePushData}>Guardar</Button>
+                    <Button color="white" onClick={handlePushData}>Cancelar</Button>
                   </div>
                 
                 </Form>

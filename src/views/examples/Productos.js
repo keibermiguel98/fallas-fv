@@ -26,18 +26,18 @@ import { database } from "database/firebase";
 import { useEffect, useState } from "react";
   
 const Productos = () => {
-   const [usuarios,setUsuarios] = useState([])
-   const usuariosCollection = collection(database, "usuarios")
+   const [productos,setProductos] = useState([])
+   const productosCollection = collection(database, "productos")
     
-    const getUsuarios = async()=>{
-      const users = await getDocs(usuariosCollection)
-      setUsuarios(
-        users.docs.map((data)=>({...data.data(), id:data.id}))
+    const getProductos = async()=>{
+      const productos = await getDocs(productosCollection)
+      setProductos(
+        productos.docs.map((data)=>({...data.data(), id:data.id}))
       )
     } 
 
     useEffect(()=>{
-       getUsuarios()
+       getProductos()
     },[])
 
     return (
@@ -60,18 +60,16 @@ const Productos = () => {
                 <Table className="align-items-center table-flush" responsive hover>
                   <thead className="thead-light">
                     <tr>
-                      <th scope="col">Nombre</th>
-                      <th scope="col">Usuario</th>
-                      <th scope="col">Cedula</th>
-                      <th scope="col">Rol</th>
+                      <th scope="col">Producto</th>
+                      <th scope="col">Codigo</th>
                       <th scope="col">Fecha</th>
                       <th scope="col"/>
                     </tr>
                   </thead>
                   <tbody>
                     
-                      { usuarios.map((user)=>(
-                          <tr key={user.id}>
+                      { productos.map((prop)=>(
+                          <tr key={prop.id}>
                       <th scope="row">
                         <Media className="align-items-center">
                           <a
@@ -86,29 +84,18 @@ const Productos = () => {
                           </a>
                           <Media>
                             <span className="mb-0 text-sm">
-                               {user.nombreCompleto}
+                               {prop.producto}
                             </span>
                           </Media>
                         </Media>
                       </th>
                       <td>
-                      {user.nombreUsuario}
+                      {prop.codigo}
                       </td>
                       <td>
-                          {user.cedula}
+                          {prop.fecha}
                       </td>
-                      <td>
-                      { user.rol == "Administrador" ?  <Badge color="info" pill>{user.rol}</Badge>: user.rol == "Encargado" ?  <Badge color="success" pill> {user.rol}</Badge> :  <Badge color="warning" pill> {user.rol}</Badge>
-                        
-                        }
-                     
-                      </td>
-                      <td>
-                        <div className="d-flex align-items-center">
-                          <span className="mr-2">60%</span> 
-                        </div>
-  
-                      </td>
+              
                       <td className="text-right">
                         <UncontrolledDropdown>
                           <DropdownToggle
