@@ -14,10 +14,12 @@ const UserHeader = () => {
           backgroundPosition: "center top",
         }}
       >
-        {/* Mask */}
+        {/* Mask */}  
         <span className="mask bg-gradient-default opacity-8" />
+        
         {/* Header container */}
         <Container className="d-flex align-items-center" fluid>
+     
           <Row>
             <Col lg="7" md="10">
               <h1 className="display-2 text-white">Hello Jesse</h1>

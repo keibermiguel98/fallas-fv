@@ -84,12 +84,12 @@ const ProductosAdd = () => {
                   </Col>
                   <Col className="text-right" xs="4">
                     <Button
-                      color="primary"
+                      color="warning"
                       href="#pablo"
                       onClick={(e) => e.preventDefault()}
                       size="sm"
                     >
-                      Settings
+                      Codigo alterno
                     </Button>
                   </Col>
                 </Row>
