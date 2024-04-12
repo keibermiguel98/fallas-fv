@@ -31,7 +31,8 @@ const Profile = () => {
        password: password,
        rol:rol,
        direccion: direccion,
-       sobre:sobre
+       sobre:sobre,
+       createAt: new Date()
       }) 
     navigate('/admin/users')
   }

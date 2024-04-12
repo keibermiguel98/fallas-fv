@@ -16,7 +16,8 @@ import {
     Container,
     Row,
     UncontrolledTooltip,
-    Button
+    Button,
+    Spinner
   } from "reactstrap";
   // core components
 import HeaderFallas from "components/Headers/HeaderFallas.js";
@@ -26,7 +27,7 @@ import { database } from "database/firebase";
 import { useEffect, useState } from "react";
   
 const Productos = () => {
-   const [productos,setProductos] = useState([])
+   const [producto,setProductos] = useState([])
    const productosCollection = collection(database, "productos")
     
     const getProductos = async()=>{
@@ -67,8 +68,8 @@ const Productos = () => {
                     </tr>
                   </thead>
                   <tbody>
-                    
-                      { productos.map((prop)=>(
+                      
+                      { producto.map((prop)=>(
                           <tr key={prop.id}>
                       <th scope="row">
                         <Media className="align-items-center">
@@ -79,7 +80,7 @@ const Productos = () => {
                           >
                             <img
                               alt="..."
-                              src={require("../../assets/img/theme/medicine.png")}
+                              src={require("../../assets/img/theme/box.png")}
                             />
                           </a>
                           <Media>

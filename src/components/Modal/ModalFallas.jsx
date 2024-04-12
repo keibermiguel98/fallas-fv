@@ -30,13 +30,19 @@ export const ModalFallas=(args)=>{
       e.preventDefault()
       setModal(!modal)
     
-      await addDoc(fallasCollection, {medicamentos:producto, cantidadExistente: existencia, cantidadSugerida:cantidadSugerida, statusFallas:'Pendiente'})  
+      await addDoc(fallasCollection, 
+        {medicamentos:producto,
+         cantidadExistente: existencia, 
+         cantidadSugerida:cantidadSugerida, 
+         statusFallas:'Pendiente',
+         createAt: new Date()
+        })  
     }
 
     return(
         <>
         <Button className="my-4" color="success" type="button" onClick={toggle}>
-              Nueva falla
+            Nueva falla
         </Button>
 
         <Modal isOpen={modal} toggle={toggle} {...args}>

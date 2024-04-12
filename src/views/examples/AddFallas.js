@@ -35,9 +35,7 @@ const AddFallas = () => {
   const fails = await getDocs(fallasCollection)
    setFallas(
     fails.docs.map((doc)=>({...doc.data(), id:doc.id}))
-   )
-   console.log(fallas)
-  }
+   )}
 
   useEffect(()=>{
    getFallas()
@@ -79,7 +77,7 @@ const AddFallas = () => {
                         >
                           <img
                             alt="..."
-                            src={require("../../assets/img/theme/pills.png")}
+                            src={require("../../assets/img/theme/box.png")}
                           />
                         </a>
                         <Media>

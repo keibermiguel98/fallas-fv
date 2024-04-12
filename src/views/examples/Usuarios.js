@@ -76,12 +76,12 @@ const Usuarios = () => {
                         <Media className="align-items-center">
                           <a
                             className="avatar rounded-circle mr-4"
-                            href="#pablo"
+                            href="#"
                             onClick={(e) => e.preventDefault()}
                           >
                             <img
                               alt="..."
-                              src={require("../../assets/img/theme/user.png")}
+                              src={require("../../assets/img/theme/usuario.png")}
                             />
                           </a>
                           <Media>
