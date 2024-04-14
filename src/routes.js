@@ -2,6 +2,7 @@ import Index from "views/Index.js";
 import AddFallas from "views/examples/AddFallas";
 import Usuarios from "views/examples/Usuarios";
 import Productos from "views/examples/Productos";
+import Login from "views/examples/Login";
 
 var routes = [
   {
@@ -35,5 +36,12 @@ var routes = [
     component: <Usuarios />,
     layout: "/admin",
   },
+  {
+    path: "/login",
+    name: "Login",
+    icon: "ni ni-key-25 text-info",
+    component: <Login/>,
+    layout: "/auth",
+  }
 ];
 export default routes;

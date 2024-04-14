@@ -24,7 +24,7 @@ const Profile = () => {
   
   const handlePushData = async ()=>{
     await addDoc(usuariosCollection, 
-      {nombreUsuario:nameUser,
+      {correo:correo,
        cedula: cedula, 
        nombreCompleto:nameComplete, 
        telefono:telefono,
@@ -37,7 +37,7 @@ const Profile = () => {
     navigate('/admin/users')
   }
    
-   const [nameUser, setNameUser] = useState('')
+   const [correo, setCorreo] = useState('')
    const [cedula, setCedula] = useState('')
    const [nameComplete, setNameComplete] = useState('')
    const [telefono,setTelefono] = useState('')
@@ -46,8 +46,8 @@ const Profile = () => {
    const [direccion,setDireccion] = useState('')
    const [sobre,setSobre] = useState('')
 
-   const handleGetNameUser =(e)=>{
-     setNameUser(e.target.value)
+   const handleGetCorreo =(e)=>{
+     setCorreo(e.target.value)
    }
 
    const handleGetCedula =(e)=>{
@@ -134,25 +134,8 @@ const Profile = () => {
                   </h6>
                   <div className="pl-lg-4">
                     <Row>
-                      <Col lg="6">
-                        <FormGroup>
-                          <label
-                            className="form-control-label"
-                            htmlFor="input-username"
-                          >
-                            Nombre de usuario(*)
-                          </label>
-                          <Input
-                            value={nameUser}
-                            onChange={handleGetNameUser}
-                            className="form-control-alternative"
-                            id="input-username-alternative"
-                            placeholder="Username"
-                            type="text"
-                          />
-                        </FormGroup>
-                      </Col>
-                      <Col lg="6">
+                    
+                      <Col lg="4">
                         <FormGroup>
                           <label
                             className="form-control-label"
@@ -165,14 +148,13 @@ const Profile = () => {
                             onChange={handleGetCedula}
                             className="form-control-alternative"
                             id="input-email"
-                            placeholder="jesse@example.com"
-                            type="email"
+                            placeholder="V-00000000"
+                            type="text"
                           />
                         </FormGroup>
                       </Col>
-                    </Row>
-                    <Row>
-                      <Col lg="6">
+
+                      <Col lg="4">
                         <FormGroup>
                           <label
                             className="form-control-label"
@@ -190,7 +172,7 @@ const Profile = () => {
                           />
                         </FormGroup>
                       </Col>
-                      <Col lg="6">
+                      <Col lg="4">
                         <FormGroup>
                           <label
                             className="form-control-label"
@@ -218,8 +200,27 @@ const Profile = () => {
                   </h6>
                   <div className="pl-lg-4">
                     <Row>
+
+                    <Col lg="4">
+                        <FormGroup>
+                          <label
+                            className="form-control-label"
+                            htmlFor="input-username"
+                          >
+                            Correo electronico(*)
+                          </label>
+                          <Input
+                            value={correo}
+                            onChange={handleGetCorreo}
+                            className="form-control-alternative"
+                            id="input-username-alternative"
+                            placeholder="Example@gmail.com"
+                            type="email"
+                          />
+                        </FormGroup>
+                      </Col>
                     
-                      <Col lg="6">
+                      <Col lg="4">
                         <FormGroup>
                           <label
                             className="form-control-label"
@@ -238,7 +239,7 @@ const Profile = () => {
                         </FormGroup>
                       </Col>
 
-                      <Col lg="6">
+                      <Col lg="4">
                         <FormGroup>
                           <label
                             className="form-control-label"
@@ -293,20 +294,9 @@ const Profile = () => {
                   </div>
                   <hr className="my-4" />
                   {/* Description */}
-                  <h6 className="heading-small text-muted mb-4">Sobre mi</h6>
                   <div className="pl-lg-4">
-                    <FormGroup>
-                      <label>🧩</label>
-                      <Input
-                        value={sobre}
-                        onChange={handleSobre}
-                        className="form-control-alternative"
-                        placeholder="A few words about you ..."
-                        rows="4"
-                        type="textarea"
-                      />
-                    </FormGroup>
                     <Button color="info" onClick={handlePushData}>Guardar</Button>
+                    <Button color="white">Cancelar</Button>
                   </div>
                 
                 </Form>

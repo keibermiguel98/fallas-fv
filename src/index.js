@@ -17,8 +17,8 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <BrowserRouter>
     <Routes>
-      <Route path="/admin/*" element={<AdminLayout />} />
       <Route path="/auth/*" element={<AuthLayout />} />
+      <Route path="/admin/*" element={<AdminLayout />} />
       <Route path="/admin/profile" element={<Profile/>}/>
       <Route path="/admin/productos/new-product" element={<ProductosAdd/>}/>
 
