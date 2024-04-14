@@ -13,29 +13,35 @@ import {
 } from "reactstrap";
 // core components
 import UserHeader from "components/Headers/UserHeader.js";
-import {database} from 'database/firebase.js'
-import { addDoc,collection } from "firebase/firestore";
+import {database, app} from 'database/firebase.js'
+import { setDoc,collection, doc } from "firebase/firestore";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { getAuth, createUserWithEmailAndPassword} from 'firebase/auth'
 
 const Profile = () => {
+  const Auth = getAuth(app)
   const navigate = useNavigate()
   const usuariosCollection = collection(database, "usuarios")
-  
-  const handlePushData = async ()=>{
-    await addDoc(usuariosCollection, 
-      {correo:correo,
-       cedula: cedula, 
-       nombreCompleto:nameComplete, 
-       telefono:telefono,
-       password: password,
-       rol:rol,
-       direccion: direccion,
-       sobre:sobre,
-       createAt: new Date()
-      }) 
-    navigate('/admin/users')
+
+  const registerUser = async()=>{
+   const infoUsuario = await createUserWithEmailAndPassword(Auth,correo,password).then((usuario)=>{
+    return usuario
+   })
+   console.log(infoUsuario)
+   const docRef = doc(database, `usuarios/${infoUsuario.user.uid}`)
+   setDoc(docRef,{correo:correo,
+    cedula: cedula, 
+    nombreCompleto:nameComplete, 
+    telefono:telefono,
+    password: password,
+    rol:rol,
+    direccion: direccion,
+    createAt: new Date()
+   })
+   navigate('/admin/users')
   }
+  
    
    const [correo, setCorreo] = useState('')
    const [cedula, setCedula] = useState('')
@@ -44,7 +50,7 @@ const Profile = () => {
    const [password,setPassword] = useState('')
    const [rol, setRol] = useState('') 
    const [direccion,setDireccion] = useState('')
-   const [sobre,setSobre] = useState('')
+
 
    const handleGetCorreo =(e)=>{
      setCorreo(e.target.value)
@@ -73,11 +79,6 @@ const Profile = () => {
    const handleSetDireccion = (e)=>{
     setDireccion(e.target.value)
    }
-
-   const handleSobre = (e)=>{
-    setSobre(e.target.value)
-   }
-
 
   return (
     <>
@@ -295,7 +296,7 @@ const Profile = () => {
                   <hr className="my-4" />
                   {/* Description */}
                   <div className="pl-lg-4">
-                    <Button color="info" onClick={handlePushData}>Guardar</Button>
+                    <Button color="info" onClick={registerUser}>Guardar</Button>
                     <Button color="white">Cancelar</Button>
                   </div>
                 

@@ -61,7 +61,7 @@ const Usuarios = () => {
                   <thead className="thead-light">
                     <tr>
                       <th scope="col">Nombre</th>
-                      <th scope="col">Usuario</th>
+                      <th scope="col">Correo</th>
                       <th scope="col">Cedula</th>
                       <th scope="col">Rol</th>
                       <th scope="col">Fecha</th>
@@ -92,7 +92,7 @@ const Usuarios = () => {
                         </Media>
                       </th>
                       <td>
-                      {user.nombreUsuario}
+                      {user.correo}
                       </td>
                       <td>
                           {user.cedula}

@@ -2,17 +2,21 @@
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyBxsIzU6VgcrZJ9znUh1MNJErlwQ_I8s4Y",
-  authDomain: "farmacia-fv-6fa3c.firebaseapp.com",
-  projectId: "farmacia-fv-6fa3c",
-  storageBucket: "farmacia-fv-6fa3c.appspot.com",
-  messagingSenderId: "390589800369",
-  appId: "1:390589800369:web:16ec9784ccb096b142e790"
+  apiKey: "AIzaSyAk2o4h8EsYgF0IGf9iVYhI2G-uRxCFw3U",
+  authDomain: "farmacia-fv.firebaseapp.com",
+  databaseURL: "https://farmacia-fv-default-rtdb.firebaseio.com",
+  projectId: "farmacia-fv",
+  storageBucket: "farmacia-fv.appspot.com",
+  messagingSenderId: "331379906330",
+  appId: "1:331379906330:web:3a287549b801241da7bea3"
 };
 
 // Initialize Firebase
-const app = initializeApp(firebaseConfig);
+ export const app = initializeApp(firebaseConfig);
 
 export const database = getFirestore(app)
