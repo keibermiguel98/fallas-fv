@@ -34,7 +34,11 @@ const Login = () => {
   }
 
   const handleIniciarSesion =()=>{
-    signInWithEmailAndPassword(auth,user,password)
+    signInWithEmailAndPassword(auth,user,password).then((datos)=>{
+      console.log('inicio correctamente')
+    }).catch((error)=>{
+      console.log('Email o password incorrectos!')
+    })
   }
 
  

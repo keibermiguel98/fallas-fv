@@ -18,19 +18,21 @@ const App = () => {
       }else{
         setUsuario(null)
       }
-      console.log(usuario)
     })
     
 
   return (
     <BrowserRouter>
     <Routes>
-      <Route path="/admin/*" element={<AdminLayout />} />
-      <Route path="/auth/*" element={<AuthLayout />} />
-      <Route path="/admin/profile" element={<Profile/>}/>
-      <Route path="/admin/productos/new-product" element={<ProductosAdd/>}/>
-
-      <Route path="*" element={<Navigate to="/admin/index" replace />} />
+       { !usuario ? <Route path="/auth/*" element={<AuthLayout />} />
+       :
+         <Route path="/admin/*" element={<AdminLayout />} />
+   
+       }
+ 
+        <Route path="/admin/profile" element={<Profile/>}/>
+        <Route path="/admin/productos/new-product" element={<ProductosAdd/>}/>
+        <Route path="*" element={<Navigate to="/admin/index" replace />} />
     </Routes>
   </BrowserRouter>
   )

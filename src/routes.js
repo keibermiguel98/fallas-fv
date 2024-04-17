@@ -38,8 +38,8 @@ var routes = [
   },
   {
     path: "/login",
-    name: "Salir",
-    icon: "ni ni-key-25 text-info",
+    name: "",
+    icon: "ni ni-key-25 text-info d-none",
     component: <Login/>,
     layout: "/auth",
   }
