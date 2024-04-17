@@ -16,20 +16,15 @@ import {
 
 import { getAuth,signInWithEmailAndPassword } from "firebase/auth";
 import { app } from "database/firebase";
-import {doc,getDoc, getFirestore} from 'firebase/firestore'
 import { useState } from "react";
 
-const firestore = getFirestore(app)
 
 const Login = () => {
  const auth = getAuth(app)
  const [user,setUser] = useState('')
  const [password, setPassword] = useState('')
 
-  const handleGetUserCode = ()=>{
-    const docuRef = doc(firestore, `usuarios/${}`)
-  }
-
+  
   const handleUserState =(e)=>{
      setUser(e.target.value)
   }

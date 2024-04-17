@@ -12,7 +12,6 @@ const App = () => {
     const Auth = getAuth(app)
     const [usuario,setUsuario] = useState(null)
     
-
     onAuthStateChanged(Auth,(usuarioFirebase)=>{
       if(usuarioFirebase){
         setUsuario(usuarioFirebase)
@@ -20,7 +19,7 @@ const App = () => {
         setUsuario(null)
       }
     })
-    console.log(usuario)
+    
 
   return (
     <BrowserRouter>
