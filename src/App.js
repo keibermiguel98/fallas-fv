@@ -17,7 +17,7 @@ const App = () => {
       if(usuarioFirebase){
         setUsuario(usuarioFirebase)
       }{
-        setUsuario(1+1)
+        setUsuario(null)
       }
     })
     console.log(usuario)

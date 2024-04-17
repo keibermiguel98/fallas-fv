@@ -20,17 +20,15 @@ const Login = () => {
       <Col lg="5" md="7">
         <Card className="bg-secondary shadow border-0">
           <CardHeader className="bg-transparent pb-5">
-            <div className="text-muted text-center mt-2 mb-3">
-              <small>Sign in with</small>
+            <div className="text-center mt-2 mb-3">
+              <h4>Iniciar sesion</h4>
             </div>
             <div className="btn-wrapper text-center">
               
             </div>
           </CardHeader>
-          <CardBody className="px-lg-5 py-lg-5">
-            <div className="text-center text-muted mb-4">
-              <small>Or sign in with credentials🔑</small>
-            </div>
+          <CardBody className="px-lg-5 py-lg-4">
+            
             <Form role="form">
               <FormGroup className="mb-3">
                 <InputGroup className="input-group-alternative">
@@ -75,7 +73,7 @@ const Login = () => {
               </div>
               <div className="text-center">
                 <Button className="my-4" color="primary" type="button">
-                  Registrate
+                  Iniciar en fv!
                 </Button>
               </div>
             </Form>
@@ -91,15 +89,7 @@ const Login = () => {
               <small>Olvide mi contraseña?</small>
             </a>
           </Col>
-          <Col className="text-right" xs="6">
-            <a
-              className="text-light"
-              href="#pablo"
-              onClick={(e) => e.preventDefault()}
-            >
-              <small>Crear nueva cuenta</small>
-            </a>
-          </Col>
+     
         </Row>
       </Col>
     </>
