@@ -15,9 +15,10 @@ const App = () => {
     onAuthStateChanged(Auth,(usuarioFirebase)=>{
       if(usuarioFirebase){
         setUsuario(usuarioFirebase)
-      }{
+      }else{
         setUsuario(null)
       }
+      console.log(usuario)
     })
     
 
