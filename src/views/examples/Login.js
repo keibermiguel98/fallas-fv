@@ -14,7 +14,35 @@ import {
   Col,
 } from "reactstrap";
 
+import { getAuth,signInWithEmailAndPassword } from "firebase/auth";
+import { app } from "database/firebase";
+import {doc,getDoc, getFirestore} from 'firebase/firestore'
+import { useState } from "react";
+
+const firestore = getFirestore(app)
+
 const Login = () => {
+ const auth = getAuth(app)
+ const [user,setUser] = useState('')
+ const [password, setPassword] = useState('')
+
+  const handleGetUserCode = ()=>{
+    const docuRef = doc(firestore, `usuarios/${}`)
+  }
+
+  const handleUserState =(e)=>{
+     setUser(e.target.value)
+  }
+
+  const handlePasswordState=(e)=>{
+    setPassword(e.target.value)
+  }
+
+  const handleIniciarSesion =()=>{
+    signInWithEmailAndPassword(auth,user,password)
+  }
+
+ 
   return (
     <>
       <Col lg="5" md="7">
@@ -40,6 +68,8 @@ const Login = () => {
                   <Input
                     placeholder="Email"
                     type="email"
+                    value={user}
+                    onChange={handleUserState}
                     autoComplete="new-email"
                   />
                 </InputGroup>
@@ -54,6 +84,8 @@ const Login = () => {
                   <Input
                     placeholder="Password"
                     type="password"
+                    onChange={handlePasswordState}
+                    value={password}
                     autoComplete="new-password"
                   />
                 </InputGroup>
@@ -72,7 +104,7 @@ const Login = () => {
                 </label>
               </div>
               <div className="text-center">
-                <Button className="my-4" color="primary" type="button">
+                <Button className="my-4" color="primary" type="button" onClick={handleIniciarSesion}>
                   Iniciar en fv!
                 </Button>
               </div>
