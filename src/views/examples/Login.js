@@ -40,6 +40,7 @@ const Login = () => {
        setError(true)
     }).catch((error)=>{
        setError(false)
+       console.log(error)
     })
   }
 
@@ -87,7 +88,7 @@ const Login = () => {
                     type="password"
                     onChange={handlePasswordState}
                     value={password}
-                    autoComplete="new-password"
+                    autoComplete="Contraseña"
                   />
                 </InputGroup>
               </FormGroup>
