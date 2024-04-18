@@ -8,26 +8,23 @@ import { app } from 'database/firebase';
 import { getAuth, onAuthStateChanged } from '@firebase/auth';
 
 const App = () => {
-
     const Auth = getAuth(app)
-    const [usuario,setUsuario] = useState(null)
+     const [usuario,setUsuario] = useState(false)
     
     onAuthStateChanged(Auth,(usuarioFirebase)=>{
       if(usuarioFirebase){
         setUsuario(usuarioFirebase)
       }else{
-        setUsuario(null)
+        setUsuario(false)
       }
     })
     
-
   return (
     <BrowserRouter>
     <Routes>
-       { !usuario ? <Route path="/auth/*" element={<AuthLayout />} />
+       { usuario === false ? <Route path="/auth/*" element={<AuthLayout />} />
        :
          <Route path="/admin/*" element={<AdminLayout />} />
-   
        }
  
         <Route path="/admin/profile" element={<Profile/>}/>

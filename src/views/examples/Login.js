@@ -17,12 +17,14 @@ import {
 import { getAuth,signInWithEmailAndPassword } from "firebase/auth";
 import { app } from "database/firebase";
 import { useState } from "react";
+import AlertLogin from "components/Alert/AlertLogin";
 
 
 const Login = () => {
  const auth = getAuth(app)
  const [user,setUser] = useState('')
  const [password, setPassword] = useState('')
+ const [error,setError] = useState(false)
 
   
   const handleUserState =(e)=>{
@@ -35,9 +37,9 @@ const Login = () => {
 
   const handleIniciarSesion =()=>{
     signInWithEmailAndPassword(auth,user,password).then((datos)=>{
-      console.log('inicio correctamente')
+       setError(true)
     }).catch((error)=>{
-      console.log('Email o password incorrectos!')
+       setError(false)
     })
   }
 
@@ -122,6 +124,7 @@ const Login = () => {
           </Col>
      
         </Row>
+        <AlertLogin error={error}/>
       </Col>
     </>
   );

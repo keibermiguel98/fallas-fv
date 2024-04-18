@@ -49,7 +49,7 @@ const Auth = (props) => {
                 <Col lg="5" md="6">
                   <h1 className="text-white">Bienvenido(a)!</h1>
                   <p className="text-white">
-                    Bienvenido al sistema de control de fallas farmaceutico fv!
+                    Sistema de control de fallas fv!
                   </p>
                 </Col>
               </Row>
