@@ -6,23 +6,27 @@ import Profile from "views/examples/Profile";
 import ProductosAdd from "views/examples/ProductosAdd";
 import { app } from 'database/firebase';
 import { getAuth, onAuthStateChanged } from '@firebase/auth';
+import { useSelector } from 'react-redux';
 
 const App = () => {
     const Auth = getAuth(app)
      const [usuario,setUsuario] = useState(false)
+
+     const Aauth = useSelector(state=> state.auth)
+     console.log(Aauth)
     
     onAuthStateChanged(Auth,(usuarioFirebase)=>{
       if(usuarioFirebase){
         setUsuario(usuarioFirebase)
       }else{
-        setUsuario(false)
+        setUsuario(null)
       }
     })
     
   return (
     <BrowserRouter>
     <Routes>
-       { usuario === false ? <Route path="/auth/*" element={<AuthLayout />} />
+       { !usuario ? <Route path="/auth/*" element={<AuthLayout />} />
        :
          <Route path="/admin/*" element={<AdminLayout />} />
        }

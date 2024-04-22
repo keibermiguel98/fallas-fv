@@ -24,7 +24,6 @@ const Login = () => {
  const auth = getAuth(app)
  const [user,setUser] = useState('')
  const [password, setPassword] = useState('')
- const [error,setError] = useState(false)
 
   
   const handleUserState =(e)=>{
@@ -37,9 +36,8 @@ const Login = () => {
 
   const handleIniciarSesion =()=>{
     signInWithEmailAndPassword(auth,user,password).then((datos)=>{
-       setError(true)
+        
     }).catch((error)=>{
-       setError(false)
        console.log(error)
     })
   }
@@ -125,7 +123,6 @@ const Login = () => {
           </Col>
      
         </Row>
-        <AlertLogin error={error}/>
       </Col>
     </>
   );
