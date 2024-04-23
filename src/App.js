@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom/dist'
 import AdminLayout from "layouts/Admin.js";
 import AuthLayout from "layouts/Auth.js";
@@ -10,27 +10,19 @@ import { useSelector } from 'react-redux';
 
 const App = () => {
     const Auth = getAuth(app)
-     const [usuario,setUsuario] = useState(false)
-
+  
      const Aauth = useSelector(state=> state.auth)
      console.log(Aauth)
     
     onAuthStateChanged(Auth,(usuarioFirebase)=>{
-      if(usuarioFirebase){
-        setUsuario(usuarioFirebase)
-      }else{
-        setUsuario(null)
-      }
+      console.log(usuarioFirebase)
     })
     
   return (
     <BrowserRouter>
     <Routes>
-       { !usuario ? <Route path="/auth/*" element={<AuthLayout />} />
-       :
-         <Route path="/admin/*" element={<AdminLayout />} />
-       }
- 
+        <Route path="/auth/*" element={<AuthLayout />} />
+        <Route path="/admin/*" element={<AdminLayout />} />
         <Route path="/admin/profile" element={<Profile/>}/>
         <Route path="/admin/productos/new-product" element={<ProductosAdd/>}/>
         <Route path="*" element={<Navigate to="/admin/index" replace />} />
