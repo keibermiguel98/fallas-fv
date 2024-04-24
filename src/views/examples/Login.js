@@ -45,7 +45,7 @@ const Login = () => {
   const handleGetUserLogin =async()=>{
      const refDoc = doc(database, `usuarios/${uid}`)
      const data = await getDoc(refDoc) 
-     console.log('datos de db:',data.data())
+     console.log(data.data())
   }
 
  
