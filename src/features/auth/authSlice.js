@@ -4,11 +4,9 @@ import { createSlice} from "@reduxjs/toolkit";
     name: 'auth',
     initialState: [],
     reducers:{
-     addAuth: (state,action)=>{
-        console.log(state,action)
-     }
+     addAuth: (state,action)=>{console.log(state,action)}
     }
 })
 
-export const {addAuth} = authSlice.actions
+export const { addAuth } = authSlice.actions
 export default authSlice.reducer

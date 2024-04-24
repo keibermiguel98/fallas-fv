@@ -17,9 +17,11 @@ import { getAuth,signInWithEmailAndPassword} from "firebase/auth";
 import { app,database } from "database/firebase";
 import {getDoc, doc} from 'firebase/firestore'
 import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { addAuth } from "features/auth/authSlice";
 
 const Login = () => {
+  const dispatch = useDispatch()
   const auth = getAuth(app)
    const [ user,setUser ] = useState('')
    const [password, setPassword] = useState('')
@@ -42,13 +44,13 @@ const Login = () => {
        console.log(error)
     })
   }
-
+ //ANEXAR USE DISPATCH 
   const handleGetUserLogin =async()=>{
      const refDoc = doc(database, `usuarios/${uid}`)
      const data = await getDoc(refDoc) 
      console.log(data.data())
+     dispatch(addAuth(data.data()))
   }
-
  
   return (
     <>
