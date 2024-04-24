@@ -1,28 +1,19 @@
 import {
-    Badge,
     Card,
     CardHeader,
-    CardFooter,
     DropdownMenu,
     DropdownItem,
     UncontrolledDropdown,
     DropdownToggle,
     Media,
-    Pagination,
-    PaginationItem,
-    PaginationLink,
-    Progress,
     Table,
     Container,
     Row,
-    UncontrolledTooltip,
-    Button,
-    Spinner
   } from "reactstrap";
   // core components
 import HeaderFallas from "components/Headers/HeaderFallas.js";
 import { Link } from "react-router-dom";
-import { getDocs,collection } from "firebase/firestore";  
+import { collection, getDocs} from "firebase/firestore";  
 import { database } from "database/firebase";
 import { useEffect, useState } from "react";
   

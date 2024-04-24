@@ -2,21 +2,14 @@ import {
   Badge,
   Card,
   CardHeader,
-  CardFooter,
   DropdownMenu,
   DropdownItem,
   UncontrolledDropdown,
   DropdownToggle,
   Media,
-  Pagination,
-  PaginationItem,
-  PaginationLink,
-  Progress,
   Table,
   Container,
   Row,
-  UncontrolledTooltip,
-  Button
 } from "reactstrap";
 // core components
 import HeaderFallas from "components/Headers/HeaderFallas.js";

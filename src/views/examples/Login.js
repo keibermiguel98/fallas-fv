@@ -1,4 +1,3 @@
-
 import {
   Button,
   Card,
@@ -14,17 +13,17 @@ import {
   Col,
 } from "reactstrap";
 
-import { getAuth,signInWithEmailAndPassword } from "firebase/auth";
-import { app } from "database/firebase";
+import { getAuth,signInWithEmailAndPassword} from "firebase/auth";
+import { app,database } from "database/firebase";
+import {getDoc, doc} from 'firebase/firestore'
 import { useState } from "react";
-import AlertLogin from "components/Alert/AlertLogin";
-
 
 const Login = () => {
- const auth = getAuth(app)
- const [user,setUser] = useState('')
- const [password, setPassword] = useState('')
-
+  const auth = getAuth(app)
+   const [ user,setUser ] = useState('')
+   const [password, setPassword] = useState('')
+   const  [uid,setUid] = useState('')
+ 
   
   const handleUserState =(e)=>{
      setUser(e.target.value)
@@ -34,12 +33,19 @@ const Login = () => {
     setPassword(e.target.value)
   }
 
-  const handleIniciarSesion =()=>{
+  const handleIniciarSesion = async()=>{
     signInWithEmailAndPassword(auth,user,password).then((datos)=>{
-        
+       setUid(datos.user.uid)
+       handleGetUserLogin()
     }).catch((error)=>{
        console.log(error)
     })
+  }
+
+  const handleGetUserLogin =async()=>{
+     const refDoc = doc(database, `usuarios/${uid}`)
+     const data = await getDoc(refDoc) 
+     console.log('datos de db:',data.data())
   }
 
  
@@ -65,6 +71,7 @@ const Login = () => {
                       <i className="ni ni-email-83" />
                     </InputGroupText>
                   </InputGroupAddon>
+
                   <Input
                     placeholder="Email"
                     type="email"
@@ -72,6 +79,7 @@ const Login = () => {
                     onChange={handleUserState}
                     autoComplete="new-email"
                   />
+
                 </InputGroup>
               </FormGroup>
               <FormGroup>
@@ -104,7 +112,7 @@ const Login = () => {
                 </label>
               </div>
               <div className="text-center">
-                <Button className="my-4" color="primary" type="button" onClick={handleIniciarSesion}>
+                <Button className="my-4" color="default" type="button" onClick={handleIniciarSesion}>
                   Iniciar en fv!
                 </Button>
               </div>

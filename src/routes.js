@@ -27,8 +27,6 @@ var routes = [
     component: <Productos />,
     layout: "/admin",
   },
-
-
   {
     path: "/users",
     name: "Usuarios",

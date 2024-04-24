@@ -5,7 +5,7 @@ import AuthLayout from "layouts/Auth.js";
 import Profile from "views/examples/Profile";
 import ProductosAdd from "views/examples/ProductosAdd";
 import { app } from 'database/firebase';
-import { getAuth, onAuthStateChanged } from '@firebase/auth';
+import { getAuth, onAuthStateChanged} from '@firebase/auth';
 import { useSelector } from 'react-redux';
 
 const App = () => {
@@ -15,7 +15,7 @@ const App = () => {
      console.log(Aauth)
     
     onAuthStateChanged(Auth,(usuarioFirebase)=>{
-      console.log(usuarioFirebase)
+      console.log('desde App.js:',usuarioFirebase)
     })
     
   return (
