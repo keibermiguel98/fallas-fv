@@ -17,6 +17,7 @@ import { getAuth,signInWithEmailAndPassword} from "firebase/auth";
 import { app,database } from "database/firebase";
 import {getDoc, doc} from 'firebase/firestore'
 import { useState } from "react";
+import { useDispatch } from "react-redux";
 
 const Login = () => {
   const auth = getAuth(app)
