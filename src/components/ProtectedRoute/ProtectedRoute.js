@@ -1,9 +1,10 @@
-import { Navigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 
 export const ProtectedRoute = ({user,children})=>{
+    const navigate = useNavigate()
    if(!user){
     console.log('no se encuentra user')
-    return <Navigate to="/auth"/>
+    return navigate("/auth")
    }
   return children
 }

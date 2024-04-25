@@ -19,7 +19,7 @@ import {getDoc, doc} from 'firebase/firestore'
 import { useState,useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { addAuth } from "features/auth/authSlice";
-import { Navigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const dispatch = useDispatch()
@@ -27,6 +27,7 @@ const Login = () => {
    const [ user,setUser ] = useState('')
    const [password, setPassword] = useState('')
    const  [uid,setUid] = useState('')
+   const navigate = useNavigate()
  
   
   const handleUserState =(e)=>{
@@ -41,7 +42,7 @@ const Login = () => {
     signInWithEmailAndPassword(auth, user, password).then((datos)=>{
       setUid(datos.user.uid)
     }).catch((error)=>{
-      dispatch(addAuth(null))
+       dispatch(addAuth(null))
     })
   }
 
@@ -54,8 +55,8 @@ const Login = () => {
   const handleGetUserLogin =async()=>{
      const refDoc = doc(database,'usuarios',uid)
      const data = await getDoc(refDoc) 
-     console.log(data.data())
      dispatch(addAuth(data.data()))
+     navigate("/admin")
   }
  
   return (

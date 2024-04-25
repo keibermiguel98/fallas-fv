@@ -6,41 +6,39 @@ import Profile from "views/examples/Profile";
 import ProductosAdd from "views/examples/ProductosAdd";
 import { app } from 'database/firebase';
 import { getAuth, onAuthStateChanged} from '@firebase/auth';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { ProtectedRoute } from 'components/ProtectedRoute/ProtectedRoute';
+import { addAuth } from 'features/auth/authSlice';
 
 const App = () => {
-    const Auth = getAuth(app)
-  
+     const Auth = getAuth(app)
+     const dispatch = useDispatch()
      const Aauth = useSelector(state=> state.auth)
     
     onAuthStateChanged(Auth,(usuarioFirebase)=>{
-      console.log('desde App.js:',usuarioFirebase)
+      dispatch(addAuth(usuarioFirebase))
     })
-    
-  return (
-    <BrowserRouter>
-    <Routes>
-         
-          <Route path="/auth/*" 
-          element={
+    return (
+       <BrowserRouter>
+         <Routes>
+          <Route path="/auth/*" element={
             <ProtectedRoute user={Aauth}>
                <AuthLayout />
             </ProtectedRoute>
-          } />
+           } />
          
-        <Route path="/admin/*" element={
-          <ProtectedRoute user={Aauth}>
+          <Route path="/admin/*" element={
+           <ProtectedRoute user={Aauth}>
             <AdminLayout />
           </ProtectedRoute>
-        } />
+          } />
 
         <Route path="/admin/profile" element={
-          <ProtectedRoute user={Aauth}>
+           <ProtectedRoute user={Aauth}>
              <Profile/>
-          </ProtectedRoute>
-        
+           </ProtectedRoute>
          }/>
+
         <Route path="/admin/productos/new-product" element={
           <ProtectedRoute user={Aauth}>
             <ProductosAdd/>
@@ -51,10 +49,9 @@ const App = () => {
           <ProtectedRoute user={Aauth}>
             <Navigate to="/admin/index" replace />
           </ProtectedRoute>      
-        } />
-    </Routes>
-  </BrowserRouter>
-  )
-}
+        }/>
+      </Routes>
+    </BrowserRouter>
+  )}
 
 export default App
