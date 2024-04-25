@@ -7,7 +7,7 @@ import ProductosAdd from "views/examples/ProductosAdd";
 import { app } from 'database/firebase';
 import { getAuth, onAuthStateChanged} from '@firebase/auth';
 import { useSelector } from 'react-redux';
-import { ProtectedRoute } from 'components/ProtectedRoutes/ProtectedRoute';
+import { ProtectedRoute } from 'components/ProtectedRoutes/ProtectedRoute.jsx';
 
 const App = () => {
     const Auth = getAuth(app)
@@ -30,7 +30,7 @@ const App = () => {
            <Route path="/admin/*" element={<AdminLayout />} />
          </ProtectedRoute>
 
-         <ProtectedRoute>
+          <ProtectedRoute>
            <Route path="/admin/profile" element={<Profile/>}/>
          </ProtectedRoute>
 

@@ -40,7 +40,7 @@ const Login = () => {
     signInWithEmailAndPassword(auth, user, password).then((datos)=>{
       setUid(datos.user.uid)
     }).catch((error)=>{
-      console.log(error)
+      dispatch(addAuth(null))
     })
   }
 
