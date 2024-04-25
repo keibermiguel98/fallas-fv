@@ -30,10 +30,29 @@ const App = () => {
             </ProtectedRoute>
           } />
          
-        <Route path="/admin/*" element={<AdminLayout />} />
-        <Route path="/admin/profile" element={<Profile/>}/>
-        <Route path="/admin/productos/new-product" element={<ProductosAdd/>}/>
-        <Route path="*" element={<Navigate to="/admin/index" replace />} />
+        <Route path="/admin/*" element={
+          <ProtectedRoute user={Aauth}>
+            <AdminLayout />
+          </ProtectedRoute>
+        } />
+
+        <Route path="/admin/profile" element={
+          <ProtectedRoute user={Aauth}>
+             <Profile/>
+          </ProtectedRoute>
+        
+         }/>
+        <Route path="/admin/productos/new-product" element={
+          <ProtectedRoute user={Aauth}>
+            <ProductosAdd/>
+          </ProtectedRoute>
+        }/>
+
+        <Route path="*" element={
+          <ProtectedRoute user={Aauth}>
+            <Navigate to="/admin/index" replace />
+          </ProtectedRoute>      
+        } />
     </Routes>
   </BrowserRouter>
   )
