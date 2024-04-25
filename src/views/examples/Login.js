@@ -16,7 +16,7 @@ import {
 import { getAuth,signInWithEmailAndPassword} from "firebase/auth";
 import { app,database } from "database/firebase";
 import {getDoc, doc} from 'firebase/firestore'
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addAuth } from "features/auth/authSlice";
 
@@ -37,16 +37,21 @@ const Login = () => {
   }
 
   const handleIniciarSesion = async()=>{
-    signInWithEmailAndPassword(auth,user,password).then((datos)=>{
-       setUid(datos.user.uid)
-       handleGetUserLogin()
+    signInWithEmailAndPassword(auth, user, password).then((datos)=>{
+      setUid(datos.user.uid)
     }).catch((error)=>{
-       console.log(error)
+      console.log(error)
     })
   }
+
+  useEffect(() => {
+    if (uid) { // Verificar si uid tiene un valor
+      handleGetUserLogin()
+    }
+  }, [uid]);
  //ANEXAR USE DISPATCH 
   const handleGetUserLogin =async()=>{
-     const refDoc = doc(database, `usuarios/${uid}`)
+     const refDoc = doc(database,'usuarios',uid)
      const data = await getDoc(refDoc) 
      console.log(data.data())
      dispatch(addAuth(data.data()))
