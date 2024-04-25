@@ -13,7 +13,6 @@ const App = () => {
     const Auth = getAuth(app)
   
      const Aauth = useSelector(state=> state.auth)
-     console.log(Aauth)
     
     onAuthStateChanged(Auth,(usuarioFirebase)=>{
       console.log('desde App.js:',usuarioFirebase)

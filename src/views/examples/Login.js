@@ -17,8 +17,9 @@ import { getAuth,signInWithEmailAndPassword} from "firebase/auth";
 import { app,database } from "database/firebase";
 import {getDoc, doc} from 'firebase/firestore'
 import { useState,useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { addAuth } from "features/auth/authSlice";
+import { Navigate } from "react-router-dom";
 
 const Login = () => {
   const dispatch = useDispatch()
