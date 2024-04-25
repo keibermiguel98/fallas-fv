@@ -7,6 +7,7 @@ import ProductosAdd from "views/examples/ProductosAdd";
 import { app } from 'database/firebase';
 import { getAuth, onAuthStateChanged} from '@firebase/auth';
 import { useSelector } from 'react-redux';
+import { Navigate } from 'react-router-dom';
 
 const App = () => {
     const Auth = getAuth(app)
